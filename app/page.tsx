@@ -1,23 +1,38 @@
+import AboutPage from "@/components/component/AboutUs";
+import { ContactForm } from "@/components/component/ContactForm";
+import Feature from "@/components/component/Features";
+import { Navbar } from "@/components/component/Navbar";
 import Image from "next/image";
-import { Navbar } from "./components/Navbar";
-import { ContactForm } from "./components/ContactForm";
-import AboutPage from "./components/AboutUs";
-import Feature from "./components/Features";
+import heroImg from "@/public/assets/heroImg.png";
+import Icon from "@/components/component/Icon";
+import { GoShieldCheck } from "react-icons/go";
+import { GoShieldLock } from "react-icons/go";
+import { MdConnectWithoutContact } from "react-icons/md";
 
 export default function Home() {
   return (
     <main
-      className="main"
+      className="main text-white"
       style={{
         background:
           "linear-gradient(180deg, #ff0091 30% , #f60246 , #f76244 51%, #fa7d21 85%)",
       }}
     >
-      <Navbar />
+      <Image
+        src={heroImg}
+        alt="hero"
+        className="absolute z-15 top-0 right-0  max-w-md max-h-md hidden md:block"
+      />
 
+      <Navbar />
       <Hero />
       <Feature />
       <AboutPage />
+      <div className="container flex justify-around">
+        <Icon icon={<GoShieldLock />} text="Security" />
+        <Icon icon={<MdConnectWithoutContact />} text="Connection" />
+        <Icon icon={<GoShieldCheck />} text="Varification" />
+      </div>
       <ContactForm />
       <Footer />
     </main>
@@ -26,19 +41,19 @@ export default function Home() {
 
 const Hero = () => {
   return (
-    <div className="max-w-4xl  px-4 sm:px-6">
+    <div className="max-w-2xl  px-4 sm:px-6">
       <div className="pt-32 pb-12 md:pt-40 md:pb-20">
         {/* Section header */}
         <div className="text-left pb-12 md:pb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tighter tracking-tighter mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
-              The quick, brown fox
+              Dive into The Sweet Symphony of Sudh Love{" "}
             </span>{" "}
-            jumps over a{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
-              lazy dog
-            </span>
+            Sudh Love{" "}
           </h1>
+          <div className="space-x-3 text-sm">
+            Where Connections Blossom and Hearts Flourish.
+          </div>
         </div>
       </div>
     </div>
@@ -49,7 +64,7 @@ const Hero = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 text-white p-6">
+    <footer className=" text-white p-6">
       <div className="container mx-auto flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold">Your Logo</h2>
